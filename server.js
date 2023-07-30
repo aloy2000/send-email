@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const app = express();
+const port = process.env.PORT || 3001; 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -12,20 +13,19 @@ app.post('/send-email', (req, res) => {
   const { subject, body,emailSender } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
+    host: 'smtp.hostinger.com',
     port: 465,
     secure: true,
     auth: {
-      user: 'ramanandraibenirina@gmail.com',
-      pass: 'iodwufzroylzwugu',
+      user: 'contact@aeonconsulting.co',
+      pass: 'AKsoVietski7356@2@?',
     },
   });
 
   // Prepare the email content
   const mailOptions = {
     from: `${emailSender}`,
-    to: 'ramanandraibenirina@gmail.com',
+    to: 'contact@aeonconsulting.co',
     subject,
     html: body,
   };
@@ -43,6 +43,6 @@ app.post('/send-email', (req, res) => {
 });
 
 // Start the server
-app.listen(8000, () => {
+app.listen(port, () => {
   console.log('Server running on port 8000');
 });
