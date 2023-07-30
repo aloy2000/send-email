@@ -24,7 +24,7 @@ app.post('/send-email', (req, res) => {
 
   // Prepare the email content
   const mailOptions = {
-    from: `${emailSender}`,
+    from: `contact@aeonconsulting.co`,
     to: 'contact@aeonconsulting.co',
     subject,
     html: body,
